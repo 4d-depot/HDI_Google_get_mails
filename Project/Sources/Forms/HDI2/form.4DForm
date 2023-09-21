@@ -1,0 +1,406 @@
+{
+	"destination": "detailScreen",
+	"windowSizingX": "fixed",
+	"windowSizingY": "fixed",
+	"rightMargin": 20,
+	"bottomMargin": 20,
+	"menuBar": "Menu Bar #1",
+	"markerHeader": 15,
+	"markerBody": 200,
+	"markerBreak": 220,
+	"markerFooter": 240,
+	"events": [
+		"onLoad",
+		"onTimer",
+		"onPageChange"
+	],
+	"method": "method.4dm",
+	"pageFormat": {
+		"paperName": "A4",
+		"paperWidth": "842pt",
+		"paperHeight": "595pt"
+	},
+	"$4d": {
+		"version": "1",
+		"kind": "form"
+	},
+	"pages": [
+		{
+			"objects": {
+				"Tab Control": {
+					"type": "tab",
+					"top": 22,
+					"left": 23,
+					"width": 1027,
+					"height": 856,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "_TabTitles",
+					"dataSourceTypeHint": "arrayText",
+					"action": "gotoPage",
+					"events": [
+						"onClick"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"information": {
+					"type": "input",
+					"top": 119,
+					"left": 51,
+					"width": 966,
+					"height": 720,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[0].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					]
+				}
+			}
+		},
+		{
+			"objects": {
+				"Variable4": {
+					"type": "input",
+					"top": 340,
+					"left": 470,
+					"width": 547,
+					"height": 16,
+					"dataSource": "DisplayEmailAddresses(Form:C1466.mail; \"from\")",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					],
+					"contextMenu": "none"
+				},
+				"Texte5": {
+					"type": "text",
+					"top": 340,
+					"left": 330,
+					"width": 138,
+					"height": 15,
+					"text": "From:"
+				},
+				"Variable5": {
+					"type": "input",
+					"top": 367,
+					"left": 470,
+					"width": 547,
+					"height": 16,
+					"dataSource": "DisplayEmailAddresses(Form:C1466.mail; \"to\")",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					],
+					"contextMenu": "none"
+				},
+				"Texte6": {
+					"type": "text",
+					"top": 367,
+					"left": 330,
+					"width": 138,
+					"height": 15,
+					"text": "To:"
+				},
+				"Variable6": {
+					"type": "input",
+					"top": 394,
+					"left": 470,
+					"width": 547,
+					"height": 16,
+					"dataSource": "DisplayEmailAddresses(Form:C1466.mail; \"cc\")",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					],
+					"contextMenu": "none"
+				},
+				"Variable9": {
+					"type": "input",
+					"top": 421,
+					"left": 470,
+					"width": 547,
+					"height": 16,
+					"dataSource": "Form:C1466.mail.subject",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onDataChange"
+					],
+					"contextMenu": "none"
+				},
+				"attachment_Button": {
+					"type": "button",
+					"top": 445,
+					"left": 857,
+					"width": 162,
+					"height": 19,
+					"text": "Download attachment",
+					"focusable": false,
+					"method": "ObjectMethods/attachment_Button.4dm",
+					"events": [
+						"onClick"
+					]
+				},
+				"Texte7": {
+					"type": "text",
+					"top": 394,
+					"left": 330,
+					"width": 138,
+					"height": 15,
+					"text": "CC:"
+				},
+				"Texte10": {
+					"type": "text",
+					"top": 421,
+					"left": 330,
+					"width": 138,
+					"height": 15,
+					"text": "Subject:"
+				},
+				"Texte11": {
+					"type": "text",
+					"top": 448,
+					"left": 330,
+					"width": 138,
+					"height": 15,
+					"text": "Attachment(s):"
+				},
+				"Texte13": {
+					"type": "text",
+					"top": 306,
+					"left": 330,
+					"width": 221,
+					"height": 25,
+					"stroke": "#808080",
+					"fontFamily": "Segoe UI",
+					"fontSize": 18,
+					"fontWeight": "bold",
+					"text": "Mail information"
+				},
+				"List Box": {
+					"type": "listbox",
+					"left": 326,
+					"top": 119,
+					"width": 692,
+					"height": 182,
+					"events": [
+						"onSelectionChange"
+					],
+					"dataSource": "Form:C1466.mails",
+					"method": "ObjectMethods/List Box.4dm",
+					"selectionMode": "single",
+					"listboxType": "collection",
+					"currentItemSource": "Form:C1466.mail",
+					"currentItemPositionSource": "",
+					"columns": [
+						{
+							"header": {
+								"name": "Header3",
+								"text": "Remove"
+							},
+							"name": "Column3",
+							"footer": {
+								"name": "Footer3"
+							},
+							"dataSourceTypeHint": "picture",
+							"dataSource": "Form:C1466.deletePicture",
+							"width": 58,
+							"enterable": false,
+							"resizable": false,
+							"pictureFormat": "truncatedCenter",
+							"events": [
+								"onClick"
+							],
+							"method": "ObjectMethods/Column3.4dm"
+						},
+						{
+							"header": {
+								"name": "Header4",
+								"text": "Date"
+							},
+							"name": "Column4",
+							"dataSource": "Date:C102(This:C1470.sendAt)",
+							"footer": {
+								"name": "Footer4"
+							},
+							"width": 78,
+							"enterable": false,
+							"dataSourceTypeHint": "date"
+						},
+						{
+							"header": {
+								"text": "From",
+								"name": "Header1"
+							},
+							"name": "Column1",
+							"footer": {
+								"name": "Footer1"
+							},
+							"width": 194,
+							"dataSource": "This:C1470.from[0].email",
+							"enterable": false
+						},
+						{
+							"header": {
+								"name": "Header2",
+								"text": "Subject"
+							},
+							"name": "Column2",
+							"width": 592,
+							"footer": {
+								"name": "Footer2"
+							},
+							"dataSource": "This:C1470.subject",
+							"enterable": false
+						}
+					]
+				},
+				"Text": {
+					"type": "text",
+					"text": "Number of displayed emails:",
+					"top": 62,
+					"left": 330,
+					"width": 210,
+					"height": 15
+				},
+				"Input1": {
+					"type": "input",
+					"left": 520,
+					"top": 61,
+					"width": 28,
+					"height": 16,
+					"dataSourceTypeHint": "number",
+					"dataSource": "Form:C1466.numberMails",
+					"contextMenu": "none",
+					"max": 1000,
+					"min": 1
+				},
+				"attachment_DropdownList": {
+					"type": "dropdown",
+					"left": 470,
+					"top": 446,
+					"width": 377,
+					"height": 17,
+					"events": [
+						"onDataChange"
+					],
+					"dataSource": "Form:C1466.attachments"
+				},
+				"Hierarchical List": {
+					"type": "list",
+					"left": 29,
+					"top": 95,
+					"width": 287,
+					"height": 752,
+					"events": [
+						"onSelectionChange"
+					],
+					"method": "ObjectMethods/Hierarchical List.4dm",
+					"dataSource": "Form:C1466.labels.listRef"
+				},
+				"Spinner": {
+					"type": "spinner",
+					"left": 542,
+					"top": 119,
+					"width": 248,
+					"height": 182,
+					"visibility": "hidden",
+					"dataSource": "Form:C1466.spinner",
+					"method": "ObjectMethods/Spinner.4dm"
+				},
+				"Spinner1": {
+					"type": "spinner",
+					"left": 39,
+					"top": 356,
+					"width": 248,
+					"height": 182,
+					"visibility": "hidden",
+					"dataSource": "Form:C1466.spinner"
+				},
+				"Web Area": {
+					"type": "webArea",
+					"left": 330,
+					"top": 471,
+					"width": 689,
+					"height": 376,
+					"contextMenu": "none",
+					"webEngine": "system",
+					"urlSource": "",
+					"sizingX": "grow"
+				},
+				"Spinner2": {
+					"type": "spinner",
+					"left": 441,
+					"top": 445,
+					"width": 21,
+					"height": 19,
+					"visibility": "hidden",
+					"dataSource": "Form:C1466.spinner"
+				},
+				"Button1": {
+					"type": "button",
+					"text": "",
+					"top": 47,
+					"left": 29,
+					"width": 184,
+					"height": 44,
+					"events": [
+						"onClick"
+					],
+					"method": "ObjectMethods/Button1.4dm",
+					"style": "regular",
+					"icon": "/RESOURCES/btn_google_signin_light_normal_web.png",
+					"customBackgroundPicture": "/RESOURCES/btn_google_signin_light_focus_web.png",
+					"imageHugsTitle": false,
+					"textPlacement": "center"
+				},
+				"information2": {
+					"type": "input",
+					"top": 857,
+					"left": 92,
+					"width": 950,
+					"height": 16,
+					"sizingX": "grow",
+					"sizingY": "grow",
+					"dataSource": "Infos[2].Description",
+					"focusable": false,
+					"fill": "transparent",
+					"borderStyle": "none",
+					"enterable": false,
+					"styledText": true,
+					"contextMenu": "none",
+					"dragging": "none",
+					"dropping": "custom",
+					"events": [
+						"onClick"
+					],
+					"textAlign": "right",
+					"method": "ObjectMethods/information2.4dm"
+				}
+			}
+		}
+	],
+	"geometryStamp": 235,
+	"editor": {
+		"activeView": "View 1",
+		"defaultView": "View 1",
+		"views": {
+			"View 1": {}
+		}
+	}
+}
